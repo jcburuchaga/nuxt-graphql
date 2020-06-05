@@ -19,7 +19,13 @@
         v-else
         :headers="headers"
         :items="countries" 
-      ></v-data-table>
+      >
+      <template v-slot:item.currencies="{ item }">
+        <v-chip v-for="currency in item.currencies" :key="currency._id" color="green">
+         {{ currency.name }}
+        </v-chip>
+      </template> 
+      </v-data-table>
     </v-card> 
     </v-flex>
   </v-layout>
@@ -37,7 +43,7 @@ export default {
             align: 'start',
             value: 'name',
           },
-          { text: 'Moneda', value: 'currencies[0].name' },
+          { text: 'Moneda', value: 'currencies' },
           { text: 'Bandera', value: 'flag.emoji' },
         ],
         countries: [],

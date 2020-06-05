@@ -20,7 +20,10 @@ const getAllCountries = () => {
     Country {
       name
       flag { emoji }
-      currencies { name }
+      currencies { 
+        name
+        _id 
+       }
     }
   }`;
 
@@ -33,7 +36,10 @@ const getCountriesByArea = (area) => {
    Country(area:${area}){
      name
      flag { emoji }
-     currencies { name }
+     currencies { 
+       name
+       _id 
+      }
    }
  }`;
 
